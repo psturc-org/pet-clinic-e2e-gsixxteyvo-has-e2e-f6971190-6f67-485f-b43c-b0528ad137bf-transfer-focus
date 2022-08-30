@@ -1,0 +1,26 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  annotations:
+    build.appstudio.openshift.io/application: pet-clinic-e2e-gsixxteyvo
+    build.appstudio.openshift.io/build: "true"
+    build.appstudio.openshift.io/component: quarkus-component-e2e-jcsjsrzbcq
+    build.appstudio.openshift.io/type: build
+    build.appstudio.openshift.io/version: "0.1"
+    pipelines.appstudio.openshift.io/type: build
+  creationTimestamp: null
+  name: quarkus-component-e2e-jcsjsrzbcq
+  namespace: has-e2e-f6971190-6f67-485f-b43c-b0528ad137bf
+spec:
+  namespaceSelector: {}
+  resources: {}
+  serviceAccountName: pipeline
+  triggers:
+  - bindings:
+    - kind: ClusterTriggerBinding
+      ref: github-push
+    template:
+      ref: quarkus-component-e2e-jcsjsrzbcq
+status:
+  configuration:
+    generatedName: ""
